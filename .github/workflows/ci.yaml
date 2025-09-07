@@ -48,7 +48,7 @@ jobs:
           with:
             version: v1.55.2
             working-directory: src/product-catalog
-            args: run
+            args: ./...
 
     docker:
         runs-on: ubuntu-latest
@@ -86,7 +86,7 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4
           with:
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.GH_PAT }}
 
         - name: Update tag in kubernetes deployment manifest
           run: | 
